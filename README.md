@@ -1,3 +1,3 @@
 # Faculty-Information-System
 
-![Screenshot](/screenshots/first.png)
+![Screenshot](Screenshots/first.png)
