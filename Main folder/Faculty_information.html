@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="jquery_popup.css">
+    <link rel="stylesheet" href="resources_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+    <title>Document</title>
+  </head>
+  <body>
+
+    <div id="formget">
+      <a href=https://www.cdac.in/ ><img src="images/logo.png" alt="Online Form Builder"/></a>
+    </div>
+  
+    <div class="topnav">
+        <a class="active" href="Admin_Login.html">Home</a>
+        <a href="https://www.cdac.in/index.aspx?id=about">About</a>
+        <a href="https://www.cdac.in/index.aspx?id=contact">Contact</a>
+        <div class="login-container">
+          <form action="Admin_Login.html">
+            <button>Log Out</button>
+          </form>
+        </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Enter the List Accordingly</h1>
+
+      Subject:  <input type="text" id="fname" placeholder="Subject">
+      Faculty:  <input type="text" id="lname" placeholder="Faculty">
+      Semester:  <input type="number" id="age" placeholder="Semester" min="1">
+      <br>
+      <button class="addtasks" onclick="addHtmlTableRow()">INSERT ➕</button>
+      <button class="addtasks" onclick="editHtmlTbleSelectedRow()">EDIT ✍️</button>
+      <button class="addtasks" onclick="removeSelectedRow()" >DELETE ❌</button>
+
+    </div>
+
+    
+    <div class="tab">
+      <table style="border-collapse:collapse; border: 1px solid black;" id="table">
+        <tr>
+          <th>Subject</th>
+          <th>Faculty</th>
+          <th>Semester</th>
+        </tr>
+        <tr>
+          <td>Maths</td>
+          <td>Mr. Sharuk</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Physics</td>
+          <td>Mrs. Mala</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>FMS</td>
+          <td>Mr. Mukesh</td>
+          <td>3</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+        
+        var rIndex,
+            table = document.getElementById("table");
+        
+        // check the empty input
+        function checkEmptyInput()
+        {
+            var isEmpty = false,
+                fname = document.getElementById("fname").value,
+                lname = document.getElementById("lname").value,
+                age = document.getElementById("age").value;
+        
+            if(fname === ""){
+                alert("First Name Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(lname === ""){
+                alert("Last Name Connot Be Empty");
+                isEmpty = true;
+            }
+            else if(age === ""){
+                alert("Age Connot Be Empty");
+                isEmpty = true;
+            }
+            return isEmpty;
+        }
+        
+        // add Row
+        function addHtmlTableRow()
+        {
+            // get the table by id
+            // create a new row and cells
+            // get value from input text
+            // set the values into row cell's
+            if(!checkEmptyInput()){
+            var newRow = table.insertRow(table.length),
+                cell1 = newRow.insertCell(0),
+                cell2 = newRow.insertCell(1),
+                cell3 = newRow.insertCell(2),
+                fname = document.getElementById("fname").value,
+                lname = document.getElementById("lname").value,
+                age = document.getElementById("age").value;
+        
+            cell1.innerHTML = fname;
+            cell2.innerHTML = lname;
+            cell3.innerHTML = age;
+            // call the function to set the event to the new row
+            selectedRowToInput();
+        }
+        }
+        
+        // display selected row data into input text
+        function selectedRowToInput()
+        {
+            
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                  // get the seected row index
+                  rIndex = this.rowIndex;
+                  document.getElementById("fname").value = this.cells[0].innerHTML;
+                  document.getElementById("lname").value = this.cells[1].innerHTML;
+                  document.getElementById("age").value = this.cells[2].innerHTML;
+                };
+            }
+        }
+        selectedRowToInput();
+        
+        function editHtmlTbleSelectedRow()
+        {
+            var fname = document.getElementById("fname").value,
+                lname = document.getElementById("lname").value,
+                age = document.getElementById("age").value;
+            if(!checkEmptyInput()){
+            table.rows[rIndex].cells[0].innerHTML = fname;
+            table.rows[rIndex].cells[1].innerHTML = lname;
+            table.rows[rIndex].cells[2].innerHTML = age;
+          }
+        }
+        
+        function removeSelectedRow()
+        {
+            table.deleteRow(rIndex);
+            // clear input text
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("age").value = "";
+        }
+    </script>
+    
+    </body>
+</html>

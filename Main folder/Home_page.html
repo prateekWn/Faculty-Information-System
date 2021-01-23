@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="admin_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="admin_login_script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="jquery_popup.css" />
+    <script src="jquery_popup.js"></script>
+</head>
+<body>
+
+  <!-- Right side div -->
+  <div id="formget">
+    <a href=https://www.cdac.in/ ><img src="images/logo.png" alt="Online Form Builder"/></a>  
+  </div>
+ 
+  <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="https://www.cdac.in/index.aspx?id=about">About</a>
+      <a href="https://www.cdac.in/index.aspx?id=contact">Contact Us</a>
+      <div class="search-container">
+        <form action="https://www.google.com/" method="GET">
+          <input type="search" placeholder="Search powered by Google" name="q" style="font-size: smaller;">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <div class="login-container">
+          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn"><a href="index.html">Log-in / Sign-up</a></button>
+      </div>
+  </div>
+
+  
+  <div class="wholeBody">
+    <p>
+      C-DAC's Education and Training programmes are aimed at creating skilled manpower in the country by providing quality training programmes in the field of Electronics and ICT. 
+      <br>
+      This activity started almost two decades ago with a humble beginning of training about 20 students per year, but has today grown to an extent of training more than 5000 students per year.
+      <br>
+      It also grew from just one training centre to about 50 training centres across India and has even made its presence in several countries abroad. 
+      <br>
+      In addition to conducting wide range of training programmes in the areas of Information, Communication and Electronics technologies, C-DAC also develops ICT tools and technologies for modern methods of imparting education and training to masses. 
+      <br>
+      The Education and Training activities of C-DAC are governed and steered by Academic Council (AC) and Academic Management Committee (AMC).
+      <br>
+      Presently, C-DAC offers its various training programmes through its own training centres in - 
+        <ul>
+          <li>Chennai</li> 
+          <li>Hyderabad</li> 
+          <li>Kolkata</li> 
+          <li>Mohali</li> 
+          <li>Mumbai</li> 
+          <li>Noida</li> 
+          <li>Pune and </li>
+          <li>Thiruvananthapuram</li>
+        </ul>
+        and its network of Authorised Training Centres (ATC) spread across the country.
+    </p>
+    <p>The various activities under the umbrella of C-DAC's Education and Training Programmes are described below:</p>  
+    <div class="innerLink">
+          <ul>
+              <li><a href="#C1">Courses</a></li>
+              <li><a href="#F1">Form for students to for qeury</a></li>
+          </ul>
+      </div>
+      <h3 id="C1">Courses</h3>
+      <iframe src="Course1.html" frameborder="5" height="500px" width="500px"></iframe>
+      <iframe src="Course2.html" frameborder="5" height="500px" width="500px"></iframe>
+  </div>
+
+  <!-- ********Required div starts here*********** -->
+  <div class="popform" id="popup">
+    <b>1.Onclick Popup Contact Form</b><hr/>
+    <p id="onclick">Popup</p>
+    <br/>
+  </div>
+  
+  <!--***********************Contact Form********************* -->
+  <div id="contactdiv">
+    <form class="popform" action="#" id="contact">
+      <img src="images/cancle.jpg" class="img" id="cancel"/>
+      <h3>Enquiry Form</h3>
+      <hr/><br/>
+      <label>Name: <span>*</span></label>
+      <br/>
+      <input type="nam" id="name" placeholder="Name" required /><br/>
+      <br/>
+      <label>Email: <span>*</span></label>
+      <br/>
+      <input type="email" id="email" placeholder="Email" required /><br/>
+      <br/>
+      <label>Contact No: <span>*</span></label>
+      <br/>
+      <input type="tel" id="contactno" placeholder="10 digit Mobile no." required/><br/>
+      <br/>
+      <label>Message:</label>
+      <br/>
+      <textarea id="message" placeholder="Message......."></textarea><br/>
+      <br/>
+      <input type="button" id="send" value="Send"/>
+      <input type="button" id="cancel" value="Cancel"/>
+      <br/>
+    </form>
+  </div>
+  
+
+</body>
+</html>

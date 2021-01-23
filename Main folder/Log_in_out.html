@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jquery_popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Log in and registration form</title>
+</head>
+<body>
+
+    <!-- Top side div -->
+    <div id="formget">
+        <a href=https://www.cdac.in/ ><img src="images/logo.png" alt="Online Form Builder"/></a>
+    </div>
+
+    <div class="topnav">
+        <a href="Admin_Login.html">Home</a>
+        <a href="https://www.cdac.in/index.aspx?id=about">About</a>
+        <a href="https://www.cdac.in/index.aspx?id=contact">Contact</a>
+        <div class="search-container">
+          <form action="https://www.google.com/" method="GET">
+            <input type="search" placeholder="Search.." name="q">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+    </div>
+
+    <div class="Login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" required placeholder="user name"/>
+                <input type="text" required placeholder="password"/>
+                <input type="email" required placeholder="email id"/>
+                <button>Create</button>
+                <p class="message">Already Registrated? <a href="#">Login</a></p>
+            </form>
+
+            <form class="login-form">
+                <input type="email"  id="username" placeholder="user name" required>
+                <input type="password" id="password" placeholder="password" required>
+                <button onclick="validate()">Login</button>
+                <p class="message">Not Registrated? <a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        $('.message a').click(function(){
+            $('form').animate({height:"toggle" , opacity: "toggle"} , "slow");
+        });
+
+
+        var attempt = 3;
+        // Variable to count number of attempts.
+        // Below function Executes on click of login button.
+        function validate(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if ( username == "p@gmail.com" && password == "1234"){
+                window.location = "/admin_resources.html"; 
+                // Redirecting to other page.
+                window.location.assign("/admin_resources.html");
+                alert ("Login successfully");        
+            }
+            else if(username == "pr@gmail.com" && password == "1234"){
+                window.location.href = '/admin_resources.html';
+            }
+            else{
+                attempt --;// Decrementing by one.
+                alert("You have left "+attempt+" attempt;");
+               
+            }
+           
+        window.location.href = 'admin_resources.html';
+        
+        }
+    </script>
+    
+</body>
+</html>
